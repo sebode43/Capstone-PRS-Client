@@ -1,0 +1,26 @@
+<app-menu></app-menu>
+<label>Major List</label> | 
+<a routerLink = "/users/create">New User</a> | 
+<input [(ngModel)]="searchCriteria" type="text" placeholder="Search">
+<div class="component">
+    <table class = "table table-sm">
+        <tr>
+            <th>First Name</th>
+            <th>Last Name</th>
+            <th>Username</th>
+            <th>Reviewer Status</th>
+            <th>Admin Status</th>
+        </tr>
+        <tr *ngFor="let u of users | userSearch: searchCriteria | sort: 'lastName'">
+            <td>{{u.firstname}}</td>
+            <td>{{u.lastname}}</td>
+            <td>{{u.username}}</td>
+            <td>{{u.isReviewer}}</td>
+            <td>{{u.isAdmin}}</td>
+            <td>
+                <a routerLink ="/users/detail/{{u.id}}">Details</a> | 
+                <a routerLink ="/users/edit/{{u.id}}">Edit</a>
+            </td>
+        </tr>
+    </table>
+</div>
