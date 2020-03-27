@@ -12,7 +12,7 @@ export class UserSearchPipe implements PipeTransform {
     let selUsers: User[] = [];
     for(let user of users){
       if(user.firstname.toLowerCase().includes(criteria) || user.lastname.toLowerCase().includes(criteria) 
-      || user.isReviewer.toString().includes(criteria) || user.isAdmin.toString().includes(criteria)){
+      || user.phone != null && user.phone.includes(criteria) || user.email != null && user.email.toLowerCase().includes(criteria)){
         selUsers.push(user);
       }
     }

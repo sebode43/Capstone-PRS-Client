@@ -17,7 +17,7 @@ export class UserListComponent implements OnInit {
     this.user.list().subscribe(
       res => {
         this.users = res;
-        console.debug("Listed Users:", res)
+        console.debug("Listed Users:", res);
       },
       err => {console.error(err);}
 

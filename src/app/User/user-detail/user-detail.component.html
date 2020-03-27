@@ -1,1 +1,64 @@
-<p>user-detail works!</p>
+<app-menu></app-menu>
+<label> {{user.firstname}} {{user.lastname}} Details</label> | 
+<a routerLink = "/users/create">New User</a>
+<div class="component">
+    <table class = "table table-sm">
+        <tr>
+            <th>Id:</th>
+            <td>
+                <input [(ngModel)] = "user.id" type="text" size = "10" disabled>
+            </td>
+        </tr>
+        <tr>
+            <th>First Name:</th>
+            <td>
+                <input [(ngModel)] = "user.firstname" type="text" size = "20" disabled>
+            </td>
+        </tr>
+        <tr>
+            <th>Last Name:</th>
+            <td>
+                <input [(ngModel)] = "user.lastname" type="text" size = "20" disabled>
+            </td>
+        </tr>
+        <tr>
+            <th>Username:</th>
+            <td>
+                <input [(ngModel)] = "user.username" type="text" size = "20" disabled>
+            </td>
+        </tr>
+        <tr>
+            <th>Password:</th>
+            <td>
+                <input [(ngModel)] = "user.password" type="text" size = "20" disabled>
+            </td>
+        </tr>
+        <tr>
+            <th>Phone:</th>
+            <td>
+                <input [(ngModel)] = "user.phone" type="text" size = "14" disabled>
+            </td>
+        </tr>
+        <tr>
+            <th>Email:</th>
+            <td>
+                <input [(ngModel)] = "user.email" type="text" size = "30" disabled>
+            </td>
+        </tr>
+        <tr>
+            <th>Reviewer Status:</th>
+            <td>
+                <input [(ngModel)] = "user.isReviewer" type="boolean" disabled>
+            </td>
+        </tr>
+        <tr>
+            <th>Admin Status:</th>
+            <td>
+                <input [(ngModel)] = "user.isAdmin" type="boolean" disabled>
+            </td>
+        </tr>
+        <td colspan="2">
+            <button (click)="delete()" class="btn btn-danger">Delete</button>
+        </td>
+    </table>
+</div>

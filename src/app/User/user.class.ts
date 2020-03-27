@@ -6,8 +6,8 @@ export class User{
     lastname:string="";
     phone:string= null;
     email:string= null;
-    isReviewer:boolean;
-    isAdmin:boolean;
+    isReviewer:boolean = false;
+    isAdmin:boolean = false;
 
     constructor(){}
 }

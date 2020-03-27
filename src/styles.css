@@ -1,1 +1,10 @@
-/* You can add global styles to this file, and also import other style files */
+nav{
+    margin-top: 10px;
+    margin-bottom: 10px;
+}
+label{
+    font-weight: 700;
+}
+input{
+    text-indent: 4px;
+}
