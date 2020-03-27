@@ -8,11 +8,11 @@ import { Menu } from '../menu.class';
 })
 export class MenuComponent implements OnInit {
   menus: Menu[] = [
-    new Menu("Users", "/user/list", "The user list page"),
-    new Menu("Vendors", "/vendor/list", "The vendor list page"),
-    new Menu("Products", "/product/list", "The product list page"),
-    new Menu("Requests", "/request/list", "The request list page"),
-    new Menu("Requestlines", "/requestline/list", "The requestline list page"),
+    new Menu("Users", "/users/list", "The user list page"),
+    new Menu("Vendors", "/vendors/list", "The vendor list page"),
+    new Menu("Products", "/products/list", "The product list page"),
+    new Menu("Requests", "/requests/list", "The request list page"),
+    new Menu("Requestlines", "/requestlines/list", "The requestline list page"),
   ]
   constructor() { }
 
