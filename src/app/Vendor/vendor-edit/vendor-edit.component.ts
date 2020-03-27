@@ -35,7 +35,7 @@ export class VendorEditComponent implements OnInit {
           this.vendor = res;
           console.debug("Vendor:", res);
         },
-        err => {console.error("Error on Vendor-Detail Get", err);}
+        err => {console.error("Error on Vendor:", err);}
       );
   }
 
