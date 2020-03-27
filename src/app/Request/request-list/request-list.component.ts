@@ -1,4 +1,6 @@
 import { Component, OnInit } from '@angular/core';
+import { RequestService } from '../request.service';
+import { Request } from '../request.class';
 
 @Component({
   selector: 'app-request-list',
@@ -7,9 +9,18 @@ import { Component, OnInit } from '@angular/core';
 })
 export class RequestListComponent implements OnInit {
 
-  constructor() { }
+  requests:Request[] = [];
+  searchCriteria: string = "";
+  constructor(private request: RequestService) { }
 
   ngOnInit(): void {
+    this.request.list().subscribe(
+      res => {
+        this.requests = res;
+        console.debug("Listed Requests:", res);
+      },
+      err => {console.error(err);}
+    );
   }
 
 }

@@ -1,1 +1,46 @@
-<p>request-detail works!</p>
+<app-menu></app-menu>
+<label>{{request.description}} Details</label> | 
+<a routerLink = "/requests/create">New Request</a>
+<div class = "component">
+    <table class = "table table-sm">
+        <tr>
+            <th>Id:</th>
+            <td><input [(ngModel)] = "request.id" type = "text" size="10" disabled></td>
+        </tr>
+        <tr>
+            <th>Description:</th>
+            <td><input [(ngModel)] = "request.description" type = "text" size="30" disabled></td>
+        </tr>
+        <tr>
+            <th>Justification:</th>
+            <td><input [(ngModel)] = "request.justification" type = "text" size="30" disabled></td>
+        </tr>
+        <tr>
+            <th>Rejection Reason:</th>
+            <td><input [(ngModel)] = "request.rejectionReason" type = "text" size="30" disabled></td>
+        </tr>
+        <tr>
+            <th>Delivery Mode:</th>
+            <td><input [(ngModel)] = "request.deliveryMode" type = "text" size="30" disabled></td>
+        </tr>
+        <tr>
+            <th>Status:</th>
+            <td><input [(ngModel)] = "request.status" type = "text" size="10" disabled></td>
+        </tr>
+        <tr>
+            <th>Total:</th>
+            <td><input [(ngModel)] = "request.total" type = "text" size="10" disabled></td>
+        </tr>
+        <tr *ngIf = "request.user">
+            <th>User:</th>
+            <td><input [(ngModel)] = "request.user.username" type = "text" size="20" disabled></td>
+        </tr>
+    <tr *ngIf = "!request.user">
+        <th>User:</th>
+        <td><input value = "Undeclared" type = "text" size="20" disabled></td>
+    </tr>
+        <td colspan="2">
+            <button (click) = "delete()" class = "btn btn-danger">Delete</button>
+        </td>
+    </table>
+</div>

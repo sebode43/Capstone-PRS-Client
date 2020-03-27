@@ -1,1 +1,28 @@
-<p>request-list works!</p>
+<app-menu></app-menu>
+<label>Request List</label> | 
+<a routerLink = "/requests/create">New Request</a> | 
+<input [(ngModel)] = "searchCriteria" type= "text" placeholder = "search">
+<div class = "component">
+    <table class = "table table-sm">
+        <tr>
+            <th>Description</th>
+            <th>Justification</th>
+            <th>Delivery Mode</th>
+            <th>Status</th>
+            <th>Total</th>
+            <th>User</th>
+        </tr>
+        <tr *ngFor="let r of requests | requestSearch: searchCriteria | sort: 'status'">
+            <td>{{r.description}}</td>
+            <td>{{r.justification}}</td>
+            <td>{{r.deliveryMode}}</td>
+            <td>{{r.status}}</td>
+            <td>{{r.total}}</td>
+            <td>{{r.user != null ? r.user.username: "Undeclared"}}</td>
+            <td>
+                <a routerLink ="/requests/detail/{{r.id}}">Details</a> | 
+                <a routerLink ="/requests/edit/{{r.id}}">Edit</a>
+            </td>
+        </tr>
+    </table>
+</div>

@@ -1,1 +1,46 @@
-<p>request-create works!</p>
+<app-menu></app-menu>
+<label>New Request</label> | 
+<a routerLink = "/requests/create">New Request</a>
+<div class = "component">
+    <table class = "table table-sm">
+        <tr>
+            <th>Id:</th>
+            <td><input [(ngModel)] = "request.id" type = "text" size="10" disabled></td>
+        </tr>
+        <tr>
+            <th>Description:</th>
+            <td><input [(ngModel)] = "request.description" type = "text" size="30"></td>
+        </tr>
+        <tr>
+            <th>Justification:</th>
+            <td><input [(ngModel)] = "request.justification" type = "text" size="30"></td>
+        </tr>
+        <tr>
+            <th>Rejection Reason:</th>
+            <td><input [(ngModel)] = "request.rejectionReason" type = "text" size="30"></td>
+        </tr>
+        <tr>
+            <th>Delivery Mode:</th>
+            <td><input [(ngModel)] = "request.deliveryMode" type = "text" size="30"></td>
+        </tr>
+        <tr>
+            <th>Status:</th>
+            <td><input [(ngModel)] = "request.status" type = "text" size="10" disabled></td>
+        </tr>
+        <tr>
+            <th>Total:</th>
+            <td><input [(ngModel)] = "request.total" type = "text" size="10" disabled></td>
+        </tr>
+        <tr>
+            <th>User:</th>
+            <td>
+                <select [(ngModel)] = "request.userId">
+                    <option *ngFor = "let u of users" value = "{{+u.id}}">{{u.username}}</option>
+                </select>
+            </td>
+        </tr>
+        <td colspan="2">
+            <button (click) = "save()" class = "btn btn-primary">Create</button>
+        </td>
+    </table>
+</div>
