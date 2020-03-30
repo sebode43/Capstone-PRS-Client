@@ -1,0 +1,40 @@
+<app-menu></app-menu>
+<label>RequestLine</label> | 
+<a routerLink = "/requestlines/create">New RequestLine</a> | 
+<input [(ngModel)] = "searchCriteria" type= "text" placeholder = "search">
+<div class = "component">
+        <table class = "table table-sm">
+            <tr>
+                <th>Description</th>
+                <th>Justification</th>
+                <th>Delivery Mode</th>
+                <th>Status</th>
+                <th>Total</th>
+                <th>User</th>
+            </tr>
+            <tr>
+                <td>{{request.description}}</td>
+                <td>{{request.justification}}</td>
+                <td>{{request.deliveryMode}}</td>
+                <td>{{request.status}}</td>
+                <td>{{request.total}}</td>
+                <td>{{request.user != null ? request.user.username: "Undeclared"}}</td>
+            </tr>
+        </table>
+    <table class = "table table-sm">
+        <tr>
+            <th>Product</th>
+            <th>Quantity</th>
+            <th>Price</th>
+        </tr>
+        <tr *ngFor="let rl of request.requestLines | sort: 'quantity'">
+            <td>{{rl.product != null ? rl.product.name: "Undeclared"}}</td>
+            <td>{{rl.quantity}}</td>
+            <td>{{rl.product != null ? rl.product.price: "Undeclared"}}</td>
+            <td>
+                <a routerLink ="/requestlines/delete/{{rl.id}}">Delete</a> | 
+                <a routerLink ="/requestlines/edit/{{rl.id}}">Edit</a>
+            </td>
+        </tr>
+    </table>
+</div>

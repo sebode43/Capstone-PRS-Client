@@ -16,6 +16,10 @@ import { RequestListComponent } from './request/request-list/request-list.compon
 import { RequestDetailComponent } from './request/request-detail/request-detail.component';
 import { RequestEditComponent } from './request/request-edit/request-edit.component';
 import { RequestCreateComponent } from './request/request-create/request-create.component'
+import { RequestlineEditComponent } from './requestline/requestline-edit/requestline-edit.component';
+import { RequestlineCreateComponent } from './requestline/requestline-create/requestline-create.component';
+import { RequestlineDeleteComponent } from './requestline/requestline-delete/requestline-delete.component';
+import { RequestlineComponent } from './request/requestline/requestline.component';
 
 const routes: Routes = [
   {path: "", redirectTo: "/", pathMatch: "full"},
@@ -33,8 +37,12 @@ const routes: Routes = [
   {path: "products/edit/:id",  component: ProductEditComponent},
   {path: "requests/list",  component: RequestListComponent},
   {path: "requests/detail/:id",  component: RequestDetailComponent},
-  {path: "requests/create",  component: RequestCreateComponent},
+  {path: "requests/create/",  component: RequestCreateComponent},
   {path: "requests/edit/:id",  component: RequestEditComponent},
+  {path: "requestlines/create/:requestId",  component: RequestlineCreateComponent},
+  {path: "requestlines/edit/:id",  component: RequestlineEditComponent},
+  {path: "requestlines/delete/:id",  component: RequestlineDeleteComponent},
+  {path: "requests/requestline/:id",  component: RequestlineComponent},
   {path: "**",  component: UserListComponent},
 ];
 

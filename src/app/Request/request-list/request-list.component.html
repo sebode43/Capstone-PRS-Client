@@ -21,7 +21,8 @@
             <td>{{r.user != null ? r.user.username: "Undeclared"}}</td>
             <td>
                 <a routerLink ="/requests/detail/{{r.id}}">Details</a> | 
-                <a routerLink ="/requests/edit/{{r.id}}">Edit</a>
+                <a routerLink ="/requests/edit/{{r.id}}">Edit</a> | 
+                <a routerLink ="/requests/requestline/{{r.id}}">Line</a>
             </td>
         </tr>
     </table>
