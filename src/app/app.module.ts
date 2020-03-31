@@ -31,8 +31,8 @@ import { RequestCreateComponent } from './request/request-create/request-create.
 import { RequestlineSearchPipe } from './requestline/requestline-search.pipe';
 import { RequestlineEditComponent } from './requestline/requestline-edit/requestline-edit.component';
 import { RequestlineCreateComponent } from './requestline/requestline-create/requestline-create.component';
-import { RequestlineDeleteComponent } from './requestline/requestline-delete/requestline-delete.component';
 import { RequestlineComponent } from './request/requestline/requestline.component';
+import { UserLoginComponent } from './user/user-login/user-login.component';
 
 @NgModule({
   declarations: [
@@ -63,8 +63,8 @@ import { RequestlineComponent } from './request/requestline/requestline.componen
     RequestlineSearchPipe,
     RequestlineEditComponent,
     RequestlineCreateComponent,
-    RequestlineDeleteComponent,
-    RequestlineComponent
+    RequestlineComponent,
+    UserLoginComponent
   ],
   imports: [
     BrowserModule,

@@ -13,7 +13,7 @@ export class RequestlineService {
     return this.http.get(`${url}/${id}`) as Observable<RequestLine>;
   }
   create(requestline: RequestLine):Observable <RequestLine> {
-    return this.http.post(`${url}/${requestline.requestId}`, requestline) as Observable<RequestLine>;
+    return this.http.post(`${url}`, requestline) as Observable<RequestLine>;
   }
   change(requestline: RequestLine):Observable <any> {
     return this.http.put(`${url}/${requestline.id}`, requestline) as Observable<any>;

@@ -1,0 +1,20 @@
+<h1>Purchase Request System</h1>
+<div class = "component">
+    <table class = "table table-sm">
+        <tr>
+            <th>Username:</th>
+            <td>
+                <input [(ngModel)] = "user.username" type="username" size = "20">
+            </td>
+        </tr>
+        <tr>
+            <th>Password:</th>
+            <td>
+                <input [(ngModel)] = "user.password" type="password" size = "20">
+            </td>
+        </tr>
+        <td colspan="2">
+            <button (click)="login(user.username, user.password)" class="btn btn-primary">Login</button>
+        </td>
+    </table>
+</div>

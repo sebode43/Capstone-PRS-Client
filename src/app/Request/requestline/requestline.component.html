@@ -1,6 +1,6 @@
 <app-menu></app-menu>
 <label>RequestLine</label> | 
-<a routerLink = "/requestlines/create">New RequestLine</a> | 
+<a routerLink = "/requestlines/create/{{requestId}}">New RequestLine</a> | 
 <input [(ngModel)] = "searchCriteria" type= "text" placeholder = "search">
 <div class = "component">
         <table class = "table table-sm">
@@ -26,13 +26,15 @@
             <th>Product</th>
             <th>Quantity</th>
             <th>Price</th>
+            <th>Line Total</th>
         </tr>
         <tr *ngFor="let rl of request.requestLines | sort: 'quantity'">
             <td>{{rl.product != null ? rl.product.name: "Undeclared"}}</td>
             <td>{{rl.quantity}}</td>
-            <td>{{rl.product != null ? rl.product.price: "Undeclared"}}</td>
+            <td>{{rl.product != null ? rl.product.price: "Undeclared" | currency}}</td>
+            <td>{{rl.product.price * rl.quantity | currency}}</td>
             <td>
-                <a routerLink ="/requestlines/delete/{{rl.id}}">Delete</a> | 
+                <button (click) = "delete(rl)" class = "btn btn-link">Delete</button> | 
                 <a routerLink ="/requestlines/edit/{{rl.id}}">Edit</a>
             </td>
         </tr>

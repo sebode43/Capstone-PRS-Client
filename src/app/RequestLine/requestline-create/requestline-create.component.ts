@@ -3,9 +3,8 @@ import { RequestLine } from '../requestline.class';
 import { Product } from 'src/app/product/product.class';
 import { Request } from 'src/app/request/request.class';
 import { RequestlineService } from '../requestline.service';
-import { RequestService } from 'src/app/request/request.service';
 import { ProductService } from 'src/app/product/product.service';
-import { Router } from '@angular/router';
+import { ActivatedRoute } from '@angular/router';
 
 @Component({
   selector: 'app-requestline-create',
@@ -15,26 +14,27 @@ import { Router } from '@angular/router';
 export class RequestlineCreateComponent implements OnInit {
 
   requestline: RequestLine = new RequestLine();
-  requests: Request[] = [];
+  request: Request = new Request();
+  requestId: number;
   products: Product[] = [];
 
   save(): void{
-    this.requestline.requestId = Number(this.requestline.requestId);
+    this.requestline.requestId = Number(this.requestId);
     this.requestline.productId = Number(this.requestline.productId);
+    console.log(this.requestline);
     this.requestlinesvc.create(this.requestline).subscribe(
       res => {
         console.debug("Requestline:", res);
-        this.router.navigateByUrl(`/requests/requestline/${this.requestline.requestId}`);
       },
-      err => {console.error("Error editing requestline:",err);}
+      err => {console.error("Error creating requestline:",err);}
     );
-  }   
+  } 
+    
 
   constructor(
     private requestlinesvc: RequestlineService,
-    private requestsvc: RequestService,
     private productsvc: ProductService,
-    private router: Router
+    private route: ActivatedRoute,
   ) { }
 
   ngOnInit(): void {
@@ -45,13 +45,8 @@ export class RequestlineCreateComponent implements OnInit {
       },
       err => {console.error("Error reading Product:", err);}
     );
-    this.requestsvc.list().subscribe(
-      res =>{
-        this.requests = res;
-        console.debug("Request:", res);
-      },
-      err => {console.error("Error reading Request:", err);}
-    );
+    this.requestId = this.route.snapshot.params.requestId;
+
   }
 
 }

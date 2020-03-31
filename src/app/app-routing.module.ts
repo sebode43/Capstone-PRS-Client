@@ -18,8 +18,8 @@ import { RequestEditComponent } from './request/request-edit/request-edit.compon
 import { RequestCreateComponent } from './request/request-create/request-create.component'
 import { RequestlineEditComponent } from './requestline/requestline-edit/requestline-edit.component';
 import { RequestlineCreateComponent } from './requestline/requestline-create/requestline-create.component';
-import { RequestlineDeleteComponent } from './requestline/requestline-delete/requestline-delete.component';
 import { RequestlineComponent } from './request/requestline/requestline.component';
+import { UserLoginComponent } from './user/user-login/user-login.component';
 
 const routes: Routes = [
   {path: "", redirectTo: "/", pathMatch: "full"},
@@ -41,9 +41,9 @@ const routes: Routes = [
   {path: "requests/edit/:id",  component: RequestEditComponent},
   {path: "requestlines/create/:requestId",  component: RequestlineCreateComponent},
   {path: "requestlines/edit/:id",  component: RequestlineEditComponent},
-  {path: "requestlines/delete/:id",  component: RequestlineDeleteComponent},
   {path: "requests/requestline/:id",  component: RequestlineComponent},
-  {path: "**",  component: UserListComponent},
+  {path: "users/login/:username/:password",  component: UserLoginComponent},
+  {path: "**",  component: UserLoginComponent},
 ];
 
 @NgModule({
