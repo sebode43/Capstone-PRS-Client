@@ -4,7 +4,7 @@
         <tr>
             <th>Username:</th>
             <td>
-                <input [(ngModel)] = "user.username" type="username" size = "20">
+                <input [(ngModel)] = "user.username" type="text" size = "20">
             </td>
         </tr>
         <tr>
@@ -16,5 +16,6 @@
         <td colspan="2">
             <button (click)="login(user.username, user.password)" class="btn btn-primary">Login</button>
         </td>
+            <td><span>{{message}}</span></td>
     </table>
 </div>

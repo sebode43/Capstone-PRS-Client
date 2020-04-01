@@ -2,6 +2,7 @@ import { Component, OnInit } from '@angular/core';
 import { User } from '../user.class';
 import { UserService } from '../user.service';
 import { ActivatedRoute, Router } from '@angular/router';
+import { SystemService } from 'src/app/system/system.service';
 
 @Component({
   selector: 'app-user-login',
@@ -11,47 +12,31 @@ import { ActivatedRoute, Router } from '@angular/router';
 export class UserLoginComponent implements OnInit {
 
   user: User = new User();
+  message:string = "";
+
   login(username:string, password:string) : any{
-    if(username === this.user.username && password === this.user.password) {
-      return this.user;
-    }
-    if(username != this.user.username || password != this.user.password){
-      let fail = "USER NOT FOUND";
-      return fail;
-    }
-    this.usersvc.get(this.user).subscribe(
+    this.usersvc.enter(username, password).subscribe(
       res => {
+        this.systemsvc.user = this.user;
         this.user = res;
         console.debug("Login complete.", res);
-        this.router.navigateByUrl("/users/list");
+        this.router.navigateByUrl("/requests/list");
       },
-      err => {console.error("Error editing user:",err);}
+      err => {console.error("Error during login:",err);
+      this.message = "USER NOT FOUND";
+      this.systemsvc.user = null;
+      return this.message;
+    } 
     );
   }
 
   constructor(
     private usersvc: UserService,
-    private route: ActivatedRoute,
+    private systemsvc: SystemService,
     private router: Router,
   ) { }
 
   ngOnInit(): void {
-    /*let username = this.route.snapshot.params.username;
-    this.usersvc.get(username).subscribe(
-      res =>{
-        this.user = res;
-        console.debug("User:", res);
-      },
-      err => {console.error("Error on username:", err);}
-    );
-    let password = this.route.snapshot.params.password;
-    this.usersvc.get(password).subscribe(
-      res =>{
-        this.user = res;
-        console.debug("User:", res);
-      },
-      err => {console.error("Error on password:", err);}
-    );*/
   }
 
 }

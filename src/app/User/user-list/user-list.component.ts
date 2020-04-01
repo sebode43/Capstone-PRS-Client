@@ -1,6 +1,7 @@
 import { Component, OnInit } from '@angular/core';
 import { User } from '../user.class';
 import { UserService } from '../user.service';
+import { SystemService } from 'src/app/system/system.service';
 
 @Component({
   selector: 'app-user-list',
@@ -10,8 +11,12 @@ import { UserService } from '../user.service';
 export class UserListComponent implements OnInit {
   users:User[] = [];
   searchCriteria:string = "";
+  userstore: User = new User();
 
-  constructor(private user: UserService) { }
+  constructor(
+    private user: UserService,
+    
+    ) { }
 
   ngOnInit(): void {
     this.user.list().subscribe(
@@ -22,6 +27,7 @@ export class UserListComponent implements OnInit {
       err => {console.error(err);}
 
     );
+     
   }
 
 }

@@ -20,6 +20,7 @@ import { RequestlineEditComponent } from './requestline/requestline-edit/request
 import { RequestlineCreateComponent } from './requestline/requestline-create/requestline-create.component';
 import { RequestlineComponent } from './request/requestline/requestline.component';
 import { UserLoginComponent } from './user/user-login/user-login.component';
+import { ReviewListComponent } from './request/review-list/review-list.component';
 
 const routes: Routes = [
   {path: "", redirectTo: "/", pathMatch: "full"},
@@ -43,6 +44,7 @@ const routes: Routes = [
   {path: "requestlines/edit/:id",  component: RequestlineEditComponent},
   {path: "requests/requestline/:id",  component: RequestlineComponent},
   {path: "users/login/:username/:password",  component: UserLoginComponent},
+  {path: "reviews/list",  component: ReviewListComponent},
   {path: "**",  component: UserLoginComponent},
 ];
 
