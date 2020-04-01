@@ -18,28 +18,14 @@ export class MenuComponent implements OnInit {
     new Menu("Reviews", "/reviews/list", "The review list page"),
   ]
 
-  user: User = new User();
-
-  store(username:string, password:string) : any{
-    this.usersvc.enter(username, password).subscribe(
-      res => {
-        this.systemsvc.user = this.user;
-        this.user = res;
-        console.debug("Login complete.", res);
-      },
-      err => {console.error("Error during login:",err);
-      this.systemsvc.user = null;
-    } 
-    );
-  }
-
+  user: User;
 
   constructor(
     private systemsvc: SystemService,
-    private usersvc: UserService
   ) { }
 
   ngOnInit(): void {
+    this.user = this.systemsvc.user;
   }
 
 }

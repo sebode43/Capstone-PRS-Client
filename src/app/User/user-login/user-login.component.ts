@@ -17,8 +17,8 @@ export class UserLoginComponent implements OnInit {
   login(username:string, password:string) : any{
     this.usersvc.enter(username, password).subscribe(
       res => {
-        this.systemsvc.user = this.user;
-        this.user = res;
+        this.user = res; // save the user instance
+        this.systemsvc.user = this.user; // then store it in the system service
         console.debug("Login complete.", res);
         this.router.navigateByUrl("/requests/list");
       },

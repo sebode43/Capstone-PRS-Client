@@ -26,12 +26,20 @@ export class RequestlineComponent implements OnInit {
       err => {console.error("Error deleting requestline:",err);}
     );
   } 
- /* setStatus(request: Request): string{
-    if(request.status != "REVIEW")
-    request.status == "REVIEW";
-    return request.status;
-    <button (click) = "setStatus(request)" class = "btn btn-primary">Review</button>
-  }*/
+
+  review(request: Request): void{
+    if(request.status != "REVIEW"){
+    request.status = "REVIEW";
+    }if(request.total <= 50)
+    request.status = "APPROVED";
+    this.requestsvc.change(this.request).subscribe(
+      res => {
+        this.request = res;
+        console.debug("Request Status Changed.", res);
+      },
+      err => {console.error("Error on request review status:",err);}
+    );
+  }
 
   refresh(): void {
     this.requestsvc.get(this.requestId).subscribe(
@@ -52,6 +60,15 @@ export class RequestlineComponent implements OnInit {
   ngOnInit(): void {
     this.requestId = this.route.snapshot.params.id;
       this.refresh();
+      let id = this.route.snapshot.params.id
+      this.requestsvc.get(id).subscribe(
+        res =>{
+          this.request = res;
+          console.debug("Request:", res);
+        },
+        err => {console.error("Error on Request:", err);}
+      );
+    
   }
 
 }

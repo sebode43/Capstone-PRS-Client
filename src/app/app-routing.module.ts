@@ -44,7 +44,7 @@ const routes: Routes = [
   {path: "requestlines/edit/:id",  component: RequestlineEditComponent},
   {path: "requests/requestline/:id",  component: RequestlineComponent},
   {path: "users/login/:username/:password",  component: UserLoginComponent},
-  {path: "reviews/list",  component: ReviewListComponent},
+  {path: "reviews/list/:userId",  component: ReviewListComponent},
   {path: "**",  component: UserLoginComponent},
 ];
 

@@ -23,7 +23,7 @@ export class RequestCreateComponent implements OnInit {
         console.debug("Request:", res);
         this.router.navigateByUrl("/requests/list");
       },
-      err => {console.error("Error editing request:",err);}
+      err => {console.error("Error creating request:",err);}
     );
   }
 
