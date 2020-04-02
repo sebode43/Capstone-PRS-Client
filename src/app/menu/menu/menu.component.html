@@ -1,6 +1,7 @@
 <nav class = "menu">
 <span *ngFor = "let m of menus">
-    <app-menu-item [menu] = "m"></app-menu-item>
+    <app-menu-item [menu] = "m"></app-menu-item>  
 </span>
+<a routerLink = "/reviews/list/{{user.id}}">Reviews</a> | 
 <span>{{user.username}}</span>
 </nav> 

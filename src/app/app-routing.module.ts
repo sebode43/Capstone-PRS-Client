@@ -21,6 +21,7 @@ import { RequestlineCreateComponent } from './requestline/requestline-create/req
 import { RequestlineComponent } from './request/requestline/requestline.component';
 import { UserLoginComponent } from './user/user-login/user-login.component';
 import { ReviewListComponent } from './request/review-list/review-list.component';
+import { RequestStatusComponent } from './request/request-status/request-status.component';
 
 const routes: Routes = [
   {path: "", redirectTo: "/", pathMatch: "full"},
@@ -44,8 +45,10 @@ const routes: Routes = [
   {path: "requestlines/edit/:id",  component: RequestlineEditComponent},
   {path: "requests/requestline/:id",  component: RequestlineComponent},
   {path: "users/login/:username/:password",  component: UserLoginComponent},
-  {path: "reviews/list/:userId",  component: ReviewListComponent},
+  {path: "reviews/list/:user.id",  component: ReviewListComponent},
+  {path: "requests/status/:id",  component: RequestStatusComponent},
   {path: "**",  component: UserLoginComponent},
+
 ];
 
 @NgModule({
