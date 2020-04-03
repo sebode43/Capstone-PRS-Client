@@ -24,11 +24,7 @@ export class RequestStatusComponent implements OnInit {
         this.router.navigateByUrl("/requests/list");
       },
       err => {console.error("Error editing request:",err);
-<<<<<<< HEAD
     if(this.request.status == "REJECTED" && this.request.rejectionReason == "")
-=======
-    if(this.request.status == "REJECTED" && this.request.rejectionReason == null)
->>>>>>> a0ba3f13cef311b4400021e1b92335fed4c52ae4
       this.message = "CANNOT REJECT WITHOUT A REJECTION REASON";
       return this.message;
     }

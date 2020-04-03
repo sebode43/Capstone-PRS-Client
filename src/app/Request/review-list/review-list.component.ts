@@ -22,12 +22,8 @@ export class ReviewListComponent implements OnInit {
       res => {
         if(this.request.userId != this.user.id){
         this.requests = res;
-<<<<<<< HEAD
         console.debug("Request:", res);
       }
-=======
-        console.debug("Request:", res);}
->>>>>>> a0ba3f13cef311b4400021e1b92335fed4c52ae4
       },
       err => {console.error("Error getting requests to review:",err);}
     );
