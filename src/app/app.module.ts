@@ -34,6 +34,7 @@ import { RequestlineCreateComponent } from './requestline/requestline-create/req
 import { RequestlineComponent } from './request/requestline/requestline.component';
 import { UserLoginComponent } from './user/user-login/user-login.component';
 import { ReviewListComponent } from './request/review-list/review-list.component';
+import { RequestStatusComponent } from './request/request-status/request-status.component';
 
 @NgModule({
   declarations: [
@@ -66,7 +67,8 @@ import { ReviewListComponent } from './request/review-list/review-list.component
     RequestlineCreateComponent,
     RequestlineComponent,
     UserLoginComponent,
-    ReviewListComponent
+    ReviewListComponent,
+    RequestStatusComponent
   ],
   imports: [
     BrowserModule,

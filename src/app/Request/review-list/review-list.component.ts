@@ -1,7 +1,8 @@
 import { Component, OnInit } from '@angular/core';
 import { RequestService } from '../request.service';
 import { Request } from '../request.class';
-import { ActivatedRoute } from '@angular/router';
+import { User } from 'src/app/user/user.class';
+import { SystemService } from 'src/app/system/system.service';
 
 @Component({
   selector: 'app-review-list',
@@ -13,31 +14,30 @@ export class ReviewListComponent implements OnInit {
   request: Request = new Request();
   searchCriteria: string = "";
   requestlist: Request = new Request();
+  user:User;
 
   sortRequests(): void{
-    this.requestsvc.reviewlist(this.request.userId).subscribe(
+     this.request.userId = Number(this.request.userId);
+    this.requestsvc.reviewlist(this.user.id).subscribe(
       res => {
-        this.request = res;
+        if(this.request.userId != this.user.id){
+        this.requests = res;
         console.debug("Request:", res);
+      }
       },
-      err => {console.error("Error editing request:",err);}
+      err => {console.error("Error getting requests to review:",err);}
     );
   }
 
-
   constructor(
     private requestsvc: RequestService,
-    private route: ActivatedRoute,
+    private systemsvc: SystemService,
     ) { }
 
   ngOnInit(): void {
-    this.requestsvc.list().subscribe(
-      res => {
-        this.requests = res;
-        console.debug("Listed Requests:", res);
-      },
-      err => {console.error(err);}
-    );
+    this.user = this.systemsvc.user;
+    this.sortRequests();
+    
   }
 
 

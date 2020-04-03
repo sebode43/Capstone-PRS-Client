@@ -4,7 +4,7 @@ import { Product } from 'src/app/product/product.class';
 import { Request } from 'src/app/request/request.class';
 import { RequestlineService } from '../requestline.service';
 import { ProductService } from 'src/app/product/product.service';
-import { ActivatedRoute } from '@angular/router';
+import { ActivatedRoute, Router } from '@angular/router';
 
 @Component({
   selector: 'app-requestline-create',
@@ -25,6 +25,7 @@ export class RequestlineCreateComponent implements OnInit {
     this.requestlinesvc.create(this.requestline).subscribe(
       res => {
         console.debug("Requestline:", res);
+        this.router.navigateByUrl(`/requests/requestline/${this.requestline.requestId}`);
       },
       err => {console.error("Error creating requestline:",err);}
     );
@@ -35,6 +36,7 @@ export class RequestlineCreateComponent implements OnInit {
     private requestlinesvc: RequestlineService,
     private productsvc: ProductService,
     private route: ActivatedRoute,
+    private router: Router,
   ) { }
 
   ngOnInit(): void {

@@ -1,9 +1,8 @@
 import { Component, OnInit } from '@angular/core';
 import { Request } from '../request.class';
-import { User } from 'src/app/user/user.class';
 import { RequestService } from '../request.service';
-import { UserService } from 'src/app/user/user.service';
-import { Router } from '@angular/router';
+import { Router} from '@angular/router';
+import { SystemService } from 'src/app/system/system.service';
 
 @Component({
   selector: 'app-request-create',
@@ -13,10 +12,11 @@ import { Router } from '@angular/router';
 export class RequestCreateComponent implements OnInit {
 
   request: Request = new Request();
-  users: User[] = [];
+  userId:number = 0;
 
   save(): void{
     this.request.userId = Number(this.request.userId);
+    console.log(this.request);
     this.requestsvc.create(this.request).subscribe(
       res => {
         this.request = res;
@@ -29,18 +29,12 @@ export class RequestCreateComponent implements OnInit {
 
   constructor(
     private requestsvc: RequestService,
-    private usersvc: UserService,
-    private router: Router
+    private systemsvc: SystemService,
+    private router: Router,
     ) { }
 
   ngOnInit(): void {
-    this.usersvc.list().subscribe(
-      res =>{
-        this.users = res;
-        console.debug("Request:", res);
-      },
-      err => {console.error("Error reading Request:", err);}
-    );
+    this.request.userId = this.systemsvc.user.id;
   }
 
 }

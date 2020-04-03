@@ -16,10 +16,6 @@
             <td><input [(ngModel)] = "request.justification" type = "text" size="30"></td>
         </tr>
         <tr>
-            <th>Rejection Reason:</th>
-            <td><input [(ngModel)] = "request.rejectionReason" type = "text" size="30"></td>
-        </tr>
-        <tr>
             <th>Delivery Mode:</th>
             <td><input [(ngModel)] = "request.deliveryMode" type = "text" size="30"></td>
         </tr>
@@ -30,14 +26,6 @@
         <tr>
             <th>Total:</th>
             <td><input [(ngModel)] = "request.total" type = "text" size="10" disabled></td>
-        </tr>
-        <tr>
-            <th>User:</th>
-            <td>
-                <select [(ngModel)] = "request.userId">
-                    <option *ngFor = "let u of users" value = "{{+u.id}}">{{u.username}}</option>
-                </select>
-            </td>
         </tr>
         <td colspan="2">
             <button (click) = "save()" class = "btn btn-primary">Create</button>

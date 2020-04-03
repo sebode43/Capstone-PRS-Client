@@ -2,6 +2,7 @@ import { Injectable } from '@angular/core';
 import { HttpClient } from '@angular/common/http';
 import { Observable } from 'rxjs';
 import { Request } from './request.class';
+import { User } from '../user/user.class';
 
 
 const url:string = "http://localhost:5000/api/requests"
@@ -34,8 +35,8 @@ export class RequestService {
   approve(id: any, request: Request):Observable <Request> {
     return this.http.put(`${url}/${id}/approve`, request) as Observable<Request>;
   }
-  reviewlist(id: any):Observable <Request> {
-    return this.http.get(`${url}/reviews/${id}`) as Observable<Request>;
+  reviewlist(id):Observable <Request[]> {
+    return this.http.get(`${url}/reviews/${id}`) as Observable<Request[]>;
   }
 
 

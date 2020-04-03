@@ -11,7 +11,8 @@ export class RequestListComponent implements OnInit {
 
   requests:Request[] = [];
   searchCriteria: string = "";
-  constructor(private request: RequestService) { }
+  constructor(
+    private request: RequestService) { }
 
   ngOnInit(): void {
     this.request.list().subscribe(
