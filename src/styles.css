@@ -1,10 +1,23 @@
 nav{
     margin-top: 10px;
     margin-bottom: 10px;
+    background-color: rgb(166, 237, 240);
+    
+}
+a{
+    color: teal;
+}
+h1{
+    margin-top:10px;
 }
 label{
     font-weight: 700;
 }
 input{
     text-indent: 4px;
+}
+body{
+   margin-left: 10px;
+   margin-right:10px;
+   color: teal; 
 }
