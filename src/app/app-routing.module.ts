@@ -48,6 +48,7 @@ const routes: Routes = [
   {path: "reviews/list/:user.id",  component: ReviewListComponent},
   {path: "requests/status/:id",  component: RequestStatusComponent},
   {path: "**",  component: UserLoginComponent},
+
 ];
 
 @NgModule({
